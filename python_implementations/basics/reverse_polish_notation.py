@@ -22,10 +22,10 @@ stack = []
 s = input().split()
 for char in s:
     if "0" <= char <= "9":
-        push(stack, char)
+        push(stack, int(char))
     else:
-        a = int(pop(stack))
-        b = int(pop(stack))
+        a = pop(stack)
+        b = pop(stack)
         if char == "+":
             push(stack, b + a)
         elif char == "-":

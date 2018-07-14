@@ -19,31 +19,16 @@ def clear(stack):
 
 
 stack = []
-s = input()
-for brace in s:
+for brace in input():
     if brace in "([{":
         push(stack, brace)
-    elif is_empty(stack):
-        print("NO")
-        break
-    elif brace == ")":
-        if top(stack) != "(":
+    else:
+        if is_empty(stack):
             print("NO")
             break
-        else:
-            pop(stack)
-    elif brace == "]":
-        if top(stack) != "[":
+        if not (pop(stack) + brace in ["()", "[]", "{}"]):
             print("NO")
             break
-        else:
-            pop(stack)
-    elif brace == "}":
-        if top(stack) != "{":
-            print("NO")
-            break
-        else:
-            pop(stack)
 else:
     if is_empty(stack):
         print("YES")
