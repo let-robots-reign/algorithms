@@ -6,7 +6,7 @@ def merge(a, b):
     j = 0
     result = []
     while i < len(a) and j < len(b):
-        if a[i] < b[j]:
+        if a[i] <= b[j]:
             result.append(a[i])
             i += 1
         else:
@@ -21,6 +21,6 @@ def merge_sort(a):
     Recursive division of a list
     """
     if len(a) > 1:
-        return merge_sort(merge(a[:len(a) // 2], a[len(a) // 2:]))
+        return merge(merge_sort(a[:len(a) // 2]), merge_sort(a[len(a) // 2:]))
     else:
         return a
